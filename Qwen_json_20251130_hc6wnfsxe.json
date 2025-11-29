@@ -1,0 +1,22 @@
+{
+  "name": "Calculadora de Caminata o Carrera",
+  "short_name": "Caminar o Correr",
+  "description": "Calcula la distancia que debes caminar o correr para alcanzar tu objetivo de gasto calórico.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#4a90e2",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
