@@ -7,10 +7,8 @@
   
   <!-- PWA -->
   <link rel="manifest" href="manifest.json">
-  <meta name="theme-color" content="#4a90e2">
+  <meta name="theme-color" content="#3498db">
   <link rel="apple-touch-icon" href="icon-192.png">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="default">
 
   <style>
     * {
@@ -21,10 +19,10 @@
 
     body {
       font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
-      background: linear-gradient(135deg, #f0f7ff, #e6f2ff);
+      background: linear-gradient(135deg, #e3f2fd, #bbdefb);
       color: #2c3e50;
       line-height: 1.6;
-      padding: 20px;
+      padding: 15px;
       min-height: 100vh;
     }
 
@@ -32,138 +30,225 @@
       max-width: 600px;
       margin: 0 auto;
       background: white;
-      border-radius: 16px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+      border-radius: 20px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.12);
       overflow: hidden;
     }
 
     header {
-      background: #4a90e2;
+      background: #3498db;
       color: white;
-      padding: 24px 20px;
+      padding: 28px 20px;
       text-align: center;
     }
 
     h1 {
-      font-size: 1.8rem;
+      font-size: 1.9rem;
       font-weight: 600;
+      letter-spacing: -0.5px;
     }
 
     .content {
-      padding: 24px;
+      padding: 28px;
     }
 
     .form-group {
-      margin-bottom: 22px;
+      margin-bottom: 24px;
     }
 
     label {
-      display: block;
-      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
       font-weight: 600;
-      font-size: 1.1rem;
+      font-size: 1.15rem;
       color: #2c3e50;
+    }
+
+    label svg {
+      width: 24px;
+      height: 24px;
+      color: #3498db;
     }
 
     input {
       width: 100%;
       padding: 16px;
-      font-size: 1.2rem;
-      border: 2px solid #ddd;
-      border-radius: 12px;
+      font-size: 1.25rem;
+      border: 2px solid #e0e0e0;
+      border-radius: 14px;
       background: #f9fbfd;
-      transition: border-color 0.3s;
+      transition: all 0.3s;
     }
 
     input:focus {
       outline: none;
-      border-color: #4a90e2;
+      border-color: #3498db;
+      box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
       background: #fff;
     }
 
     button {
       width: 100%;
       padding: 18px;
-      font-size: 1.2rem;
+      font-size: 1.25rem;
       font-weight: 600;
-      background: #4a90e2;
+      background: #3498db;
       color: white;
       border: none;
-      border-radius: 12px;
+      border-radius: 14px;
       cursor: pointer;
-      transition: background 0.3s;
+      transition: background 0.3s, transform 0.1s;
+      box-shadow: 0 4px 10px rgba(52, 152, 219, 0.3);
     }
 
     button:hover {
-      background: #3a7bc8;
+      background: #2980b9;
     }
 
     button:active {
-      transform: scale(0.99);
+      transform: translateY(2px);
+      box-shadow: 0 2px 5px rgba(52, 152, 219, 0.3);
     }
 
     #resultado {
-      margin-top: 24px;
-      padding: 20px;
+      margin-top: 28px;
+      padding: 22px;
       background: #e8f4ff;
-      border-radius: 12px;
-      border-left: 5px solid #4a90e2;
-      font-size: 1.15rem;
+      border-radius: 14px;
+      border-left: 5px solid #3498db;
+      font-size: 1.2rem;
       display: none;
+      animation: fadeIn 0.4s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .explicacion {
+      margin-top: 30px;
+      padding: 20px;
+      background: #f8f9fa;
+      border-radius: 14px;
+      border: 1px solid #e0e0e0;
+    }
+
+    .explicacion summary {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #2980b9;
+      cursor: pointer;
+      padding: 8px 0;
+    }
+
+    .explicacion details[open] summary {
+      color: #c0392b;
+    }
+
+    .explicacion p {
+      margin-top: 12px;
+      font-size: 1.05rem;
+      color: #555;
+    }
+
+    .ejemplo {
+      background: #e3f2fd;
+      padding: 12px;
+      border-radius: 10px;
+      margin-top: 12px;
+      font-style: italic;
     }
 
     footer {
       text-align: center;
       margin-top: 20px;
+      padding-top: 20px;
       color: #7f8c8d;
-      font-size: 0.9rem;
+      font-size: 0.95rem;
+      border-top: 1px solid #eee;
     }
 
     @media (max-width: 500px) {
-      h1 { font-size: 1.5rem; }
-      .content { padding: 20px; }
-      input, button { font-size: 1.1rem; padding: 14px; }
+      h1 { font-size: 1.6rem; }
+      .content { padding: 22px; }
+      input, button { font-size: 1.15rem; padding: 15px; }
+      label { font-size: 1.1rem; }
     }
   </style>
 </head>
 <body>
   <div class="container">
     <header>
-      <h1>📍 ¿Cuánto tiene que caminar o correr Lusquiños?</h1>
+      <h1>¿Cuánto debe caminar Roberto Lusquiños?</h1>
     </header>
 
     <div class="content">
       <div class="form-group">
-        <label for="peso">Peso (kg)</label>
+        <label>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+          </svg>
+          Peso (kg)
+        </label>
         <input type="number" id="peso" min="30" max="200" step="0.1" placeholder="Ej: 70">
       </div>
 
       <div class="form-group">
-        <label for="velocidad">Velocidad (km/h)</label>
+        <label>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M13 3c-4.97 0-9 4.03-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.93-2.06l-1.42 1.42C8.28 19.28 10.53 20 13 20c4.97 0 9-4.03 9-9s-4.03-9-9-9z"/>
+          </svg>
+          Velocidad (km/h)
+        </label>
         <input type="number" id="velocidad" min="1" max="20" step="0.1" placeholder="Ej: 5 (caminar) o 10 (correr)">
       </div>
 
       <div class="form-group">
-        <label for="objetivo">Objetivo de gasto (kcal)</label>
+        <label>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7zm2.85 10.73l-1.42 1.42c-.39.39-1.02.39-1.41 0l-1.42-1.42c-.78-.78-.78-2.05 0-2.83l1.42-1.42c.39-.39 1.02-.39 1.41 0l1.42 1.42c.78.79.78 2.05 0 2.83z"/>
+          </svg>
+          Objetivo de gasto (kcal)
+        </label>
         <input type="number" id="objetivo" min="50" max="2000" step="10" placeholder="Ej: 500">
       </div>
 
       <button onclick="calcularDistancia()">Calcular Distancia</button>
 
       <div id="resultado"></div>
+
+      <div class="explicacion">
+        <details>
+          <summary>🔍 ¿Cómo se calcula la distancia?</summary>
+          <p>
+            La app usa valores científicos validados para estimar cuánta energía gastas al caminar o correr.
+            <br><br>
+            <strong>• Caminar (≤6 km/h):</strong> se gasta aproximadamente <strong>0.80 kcal por kg de peso por km</strong>.<br>
+            <strong>• Correr (>6 km/h):</strong> se gasta aproximadamente <strong>1.00 kcal por kg de peso por km</strong>.
+          </p>
+          <div class="ejemplo">
+            <strong>Ejemplo:</strong> Si pesas 70 kg y quieres quemar 700 kcal corriendo a 10 km/h:<br>
+            Distancia = 700 ÷ (1.00 × 70) = <strong>10 km</strong>.
+          </div>
+          <p style="margin-top:12px; font-size:0.95rem; color:#666;">
+            Estos valores son promedios para terreno plano. Factores como pendiente, edad o condición física pueden variar ligeramente el resultado.
+          </p>
+        </details>
+      </div>
     </div>
 
     <footer>
-      App de salud • Funciona sin internet
+      App de salud • Funciona sin conexión • © 2025
     </footer>
   </div>
 
   <script>
-    // Registrar Service Worker para PWA
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
         navigator.serviceWorker.register('/sw.js')
-          .then(reg => console.log('SW registrado:', reg.scope))
           .catch(err => console.warn('Error al registrar SW:', err));
       });
     }
@@ -174,7 +259,7 @@
       const objetivo = parseFloat(document.getElementById('objetivo').value);
 
       if (isNaN(peso) || isNaN(velocidad) || isNaN(objetivo) || peso <= 0 || velocidad <= 0 || objetivo <= 0) {
-        alert("Por favor, introduce valores válidos.");
+        alert("⚠️ Por favor, introduce valores válidos en todos los campos.");
         return;
       }
 
@@ -188,9 +273,14 @@
         <strong>✅ ¡Listo!</strong><br>
         Para quemar <strong>${objetivo.toFixed(0)} kcal</strong> ${actividad} a <strong>${velocidad} km/h</strong>,<br>
         necesitas recorrer:<br>
-        <span style="font-size:1.4rem; font-weight:bold; color:#2c3e50;">${distancia.toFixed(2)} km</span>
+        <span style="font-size:1.4rem; font-weight:bold; color:#2c3e50; margin-top:8px; display:inline-block;">
+          ${distancia.toFixed(2)} km
+        </span>
       `;
       res.style.display = 'block';
+      
+      // Desplazarse suavemente al resultado
+      res.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }
   </script>
 </body>
